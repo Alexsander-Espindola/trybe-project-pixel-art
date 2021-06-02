@@ -9,10 +9,12 @@
   padding: 25px;
 }
 
-#table {
-  display: table;
-  width: 50%;
-  padding:  0 25% 0 25%;
+#collor-pallette {
+
+}
+
+.color {
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .tr {
@@ -23,13 +25,11 @@
 
 .td {
  display: inline-block;
- border-style: solid;
- border-width: medium;
 }
 
 .box {
   width: 50px;
   height: 50px;
   margin: 3px;
-  background-color: white;
+  border: 1px solid rgb(0, 0, 0);
 }
