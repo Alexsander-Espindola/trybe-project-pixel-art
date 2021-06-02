@@ -18,7 +18,7 @@ function createMatriz(elementDiv, divLine, divColumn) {
 function createClass(elementId, elementsClass, className) {
   const getClassName = document.getElementById(`${elementId}`).getElementsByClassName(`${elementsClass}`);
   for (let index = 0; index < getClassName.length; index += 1) {
-    getClassName[index].className = `${elementsClass} ${className}`;
+    getClassName[index].className += ` ${className}`;
   }
 }
 
@@ -26,6 +26,7 @@ createMatriz('color-palette', 1, 4);
 createClass('color-palette', 'td', 'color');
 const boxColor = document.getElementsByClassName('color');
 boxColor[0].style.backgroundColor = 'rgb( 0, 0, 0)';
+boxColor[0].className += ' selected';
 boxColor[1].style.backgroundColor = 'red';
 boxColor[2].style.backgroundColor = 'green';
 boxColor[3].style.backgroundColor = 'blue';
