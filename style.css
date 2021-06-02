@@ -2,10 +2,7 @@
   padding: 0;
   margin: 0;
 }
-div{
-  border-style: solid;
-  border-width: medium;
-}
+
 
 #title{
   text-align: center;
@@ -21,10 +18,13 @@ div{
 .tr {
   display: table-row;
   text-align: center;
+  
 }
 
 .td {
  display: inline-block;
+ border-style: solid;
+ border-width: medium;
 }
 
 .box {
