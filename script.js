@@ -1,29 +1,42 @@
-const docType = document.getElementById('color-palette');
-
 function createBox(className) {
   const box = document.createElement('div');
   box.className = className;
   return box;
 }
 
-function createMatriz(divLine, divColumn, trClassName, tdClassName) {
+function createMatriz(elementDiv, divLine, divColumn) {
+  const getElementDiv = document.getElementById(`${elementDiv}`);
   for (let i = 0; i < divLine; i += 1) {
-    const line = createBox(`tr ${trClassName}`);
-    docType.appendChild(line);
+    const line = createBox('tr');
+    getElementDiv.appendChild(line);
     for (let j = 0; j < divColumn; j += 1) {
-      const column = createBox(`td ${tdClassName}`);
+      const column = createBox('td');
       line.appendChild(column);
     }
   }
 }
-createMatriz(1, 4, '', ' color box');
-const boxColor = document.getElementsByClassName('color');
-
-for (let index = 0; index < boxColor.length; index += 1) {
-  const colorRed = Math.round(Math.random() * 255);
-  const colorBlue = Math.round(Math.random() * 255);
-  const colorGreen = Math.round(Math.random() * 255);
-  boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
-
+function createClass(elementId, elementsClass, className) {
+  const getClassName = document.getElementById(`${elementId}`).getElementsByClassName(`${elementsClass}`);
+  for (let index = 0; index < getClassName.length; index += 1) {
+    getClassName[index].className = `${elementsClass} ${className}`;
+  }
 }
-createMatriz(5, 5, ' box', ' box');
+
+createMatriz('color-palette', 1, 4);
+createClass('color-palette', 'td', 'color');
+const boxColor = document.getElementsByClassName('color');
+boxColor[0].style.backgroundColor = 'rgb( 0, 0, 0)';
+boxColor[1].style.backgroundColor = 'red';
+boxColor[2].style.backgroundColor = 'green';
+boxColor[3].style.backgroundColor = 'blue';
+
+// Gera cores aleatórias
+// for (let index = 0; index < boxColor.length; index += 1) {
+//   const colorRed = Math.round(Math.random() * 255);
+//   const colorBlue = Math.round(Math.random() * 255);
+//   const colorGreen = Math.round(Math.random() * 255);
+//   boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
+// }
+
+createMatriz('pixel-board', 5, 5);
+createClass('pixel-board', 'td', 'pixel');
