@@ -63,7 +63,7 @@ function selectColor(event) {
   verificaSelected('color');
   const divTarget = event.target;
   divTarget.className += ' selected';
-  console.log(divTarget)
+  console.log(divTarget);
 }
 
 function changeColor(event) {
@@ -71,5 +71,13 @@ function changeColor(event) {
   const color = document.getElementsByClassName('selected')[0].style.backgroundColor;
   divTarget.style.backgroundColor = `${color}`;
 }
+
+function clearBoard() {
+  const listPixel = document.getElementsByClassName('pixel');
+  for (let index = 0; index < listPixel.length; index += 1) {
+    listPixel[index].style.backgroundColor = 'white';
+  }
+}
 addEvent('pixel', 'click', changeColor);
 addEvent('color', 'click', selectColor);
+document.getElementById('clear-board').addEventListener('click', clearBoard);
