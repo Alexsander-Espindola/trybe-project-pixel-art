@@ -9,32 +9,35 @@
   padding: 25px;
 }
 
-#collor-pallette {
+#color-palette {
+  padding-left: 44.5%;
+}
 
+#pixel-board{
+  padding-left: 43%;
 }
 
 .color {
   width: 40px;
   height: 40px;
-  margin: 3px;
   border: 1px solid rgb(0, 0, 0);
 }
 
 .pixel {
-  background-color: white;
   width: 40px;
   height: 40px;
-  margin: 3px;
   border: 1px solid rgb(0, 0, 0);
+  background-color: white;
 }
 
 .tr {
   display: table-row;
-  text-align: center;
-  
 }
 
 .td {
  display: inline-block;
 }
 
+.selected {
+  background-color: black;
+}

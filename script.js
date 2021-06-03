@@ -25,14 +25,14 @@ function createClass(elementId, elementsClass, className) {
 createMatriz('color-palette', 1, 4);
 createClass('color-palette', 'td', 'color');
 const boxColor = document.getElementsByClassName('color');
-boxColor[0].style.backgroundColor = 'rgb( 0, 0, 0)';
+boxColor[0].style.backgroundColor = 'black';
 boxColor[0].className += ' selected';
-boxColor[1].style.backgroundColor = 'red';
-boxColor[2].style.backgroundColor = 'green';
-boxColor[3].style.backgroundColor = 'blue';
+boxColor[1].style.backgroundColor = 'rgb( 255, 0, 0)';
+boxColor[2].style.backgroundColor = 'rgb( 0, 255, 0)';
+boxColor[3].style.backgroundColor = 'rgb( 0, 0, 255)';
 
 // Gera cores aleatórias
-// for (let index = 0; index < boxColor.length; index += 1) {
+// for (let index = 1; index < boxColor.length; index += 1) {
 //   const colorRed = Math.round(Math.random() * 255);
 //   const colorBlue = Math.round(Math.random() * 255);
 //   const colorGreen = Math.round(Math.random() * 255);
@@ -41,3 +41,35 @@ boxColor[3].style.backgroundColor = 'blue';
 
 createMatriz('pixel-board', 5, 5);
 createClass('pixel-board', 'td', 'pixel');
+
+function addEvent(className, eventName, functionSelected) {
+  const classList = document.getElementsByClassName(`${className}`);
+  for (let index = 0; index < classList.length; index += 1) {
+    classList[index].addEventListener(`${eventName}`, functionSelected);
+  }
+}
+
+function verificaSelected(nameClass) {
+  const listColor = document.getElementsByClassName(`${nameClass}`);
+  for (let index = 0; index < listColor.length; index += 1) {
+    const positionClass = listColor[index].classList;
+    if (positionClass[2] === 'selected') {
+      listColor[index].className = `${positionClass[0]} ${positionClass[1]}`;
+    }
+  }
+}
+
+function selectColor(event) {
+  verificaSelected('color');
+  const divTarget = event.target;
+  divTarget.className += ' selected';
+  console.log(divTarget)
+}
+
+function changeColor(event) {
+  const divTarget = event.target;
+  const color = document.getElementsByClassName('selected')[0].style.backgroundColor;
+  divTarget.style.backgroundColor = `${color}`;
+}
+addEvent('pixel', 'click', changeColor);
+addEvent('color', 'click', selectColor);
