@@ -15,6 +15,7 @@ function createMatriz(elementDiv, divLine, divColumn) {
     }
   }
 }
+
 function createClass(elementId, elementsClass, className) {
   const getClassName = document.getElementById(`${elementId}`).getElementsByClassName(`${elementsClass}`);
   for (let index = 0; index < getClassName.length; index += 1) {
@@ -22,24 +23,24 @@ function createClass(elementId, elementsClass, className) {
   }
 }
 
-createMatriz('color-palette', 1, 4);
+createMatriz('color-palette', 1, 30);
 createClass('color-palette', 'td', 'color');
 const boxColor = document.getElementsByClassName('color');
-boxColor[0].style.backgroundColor = 'black';
+boxColor[0].style.backgroundColor = 'white';
 boxColor[0].className += ' selected';
-boxColor[1].style.backgroundColor = 'rgb( 255, 0, 0)';
-boxColor[2].style.backgroundColor = 'rgb( 0, 255, 0)';
-boxColor[3].style.backgroundColor = 'rgb( 0, 0, 255)';
+// boxColor[1].style.backgroundColor = 'rgb( 255, 0, 0)';
+// boxColor[2].style.backgroundColor = 'rgb( 0, 255, 0)';
+// boxColor[3].style.backgroundColor = 'rgb( 0, 0, 255)';
 
 // Gera cores aleatórias
-// for (let index = 1; index < boxColor.length; index += 1) {
-//   const colorRed = Math.round(Math.random() * 255);
-//   const colorBlue = Math.round(Math.random() * 255);
-//   const colorGreen = Math.round(Math.random() * 255);
-//   boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
-// }
+for (let index = 1; index < boxColor.length; index += 1) {
+  const colorRed = Math.round(Math.random() * 255);
+  const colorBlue = Math.round(Math.random() * 255);
+  const colorGreen = Math.round(Math.random() * 255);
+  boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
+}
 
-createMatriz('pixel-board', 5, 5);
+createMatriz('pixel-board', 10, 19);
 createClass('pixel-board', 'td', 'pixel');
 
 function addEvent(className, eventName, functionSelected) {

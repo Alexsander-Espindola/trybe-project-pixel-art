@@ -3,6 +3,9 @@
   margin: 0;
 }
 
+body {
+  background-color: aquamarine;
+}
 
 #title {
   text-align: center;
@@ -10,11 +13,19 @@
 }
 
 #color-palette {
-  margin-left: 44.5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin: 0 40vw;
 }
 
 #pixel-board {
-  margin-left: 43%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin: 0 20vw;
 }
 
 .color {
@@ -31,11 +42,13 @@
 }
 
 .tr {
-  display: table-row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .td {
-  display: inline-block;
+  display: flex;
 }
 
 .selected {
