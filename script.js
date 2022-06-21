@@ -23,14 +23,11 @@ function createClass(elementId, elementsClass, className) {
   }
 }
 
-createMatriz('color-palette', 1, 30);
+createMatriz('color-palette', 1, 100);
 createClass('color-palette', 'td', 'color');
 const boxColor = document.getElementsByClassName('color');
 boxColor[0].style.backgroundColor = 'white';
 boxColor[0].className += ' selected';
-// boxColor[1].style.backgroundColor = 'rgb( 255, 0, 0)';
-// boxColor[2].style.backgroundColor = 'rgb( 0, 255, 0)';
-// boxColor[3].style.backgroundColor = 'rgb( 0, 0, 255)';
 
 // Gera cores aleatórias
 for (let index = 1; index < boxColor.length; index += 1) {
@@ -40,7 +37,7 @@ for (let index = 1; index < boxColor.length; index += 1) {
   boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
 }
 
-createMatriz('pixel-board', 10, 19);
+createMatriz('pixel-board', 24, 24);
 createClass('pixel-board', 'td', 'pixel');
 
 function addEvent(className, eventName, functionSelected) {
