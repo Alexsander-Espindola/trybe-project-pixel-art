@@ -48,7 +48,7 @@ body {
 }
 
 #title {
-  font-family: 'Dancing Script', cursive;
+  font-family: Dancing Script, cursive;
 }
 
 #box-palette {
@@ -87,9 +87,9 @@ body {
 }
 
 .button {
-  margin: 0px 10px 0px 10px;
+  margin: 0 10px;
 }
 
 input {
-  margin: 0px 10px 0px 10px;
+  margin: 0 10px;
 }
