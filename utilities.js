@@ -60,6 +60,27 @@ function clearBoard() {
   }
 }
 
+function randomColors() {
+  const boxColor = document.getElementsByClassName('color');
+  boxColor[0].style.backgroundColor = 'white';
+  boxColor[0].className += ' selected';
+  for (let index = 1; index < boxColor.length; index += 1) {
+    const colorRed = Math.round(Math.random() * 255);
+    const colorBlue = Math.round(Math.random() * 255);
+    const colorGreen = Math.round(Math.random() * 255);
+    boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
+  }
+}
+
+function removeElementsByClass(className) {
+  const getClassName = document.getElementById(`${className}`)
+    .getElementsByClassName('td');
+  console.log(getClassName.length);
+  while(getClassName.length > 0){
+    getClassName[0].parentNode.removeChild(getClassName[0]);
+  }
+}
+
 export {
   CreateMatriz,
   CreateClass,
@@ -67,4 +88,6 @@ export {
   selectColor,
   changeColor,
   clearBoard,
+  randomColors,
+  removeElementsByClass,
 };

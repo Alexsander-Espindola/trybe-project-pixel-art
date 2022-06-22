@@ -5,30 +5,37 @@ import {
   selectColor,
   changeColor,
   clearBoard,
+  randomColors,
+  removeElementsByClass,
 } from './utilities.js';
 
 const submitBtn = document.querySelector('#send');
 let numberOfColors = 10;
+console.log(numberOfColors);
 
 submitBtn.addEventListener('click', () => {
   const colorQuantity = document.querySelector('#color-quantity');
   numberOfColors = parseInt(colorQuantity.value);
-  console.log(numberOfColors);
+  removeElementsByClass('color-palette');
+  if(numberOfColors <= 10) {
+    CreateMatriz('color-palette', 1, 10);
+  } else {
+    CreateMatriz('color-palette', 1, numberOfColors);
+  }
+  CreateClass('color-palette', 'td', 'color');
+  randomColors();
+
 });
 
-CreateMatriz('color-palette', 1, numberOfColors);
+CreateMatriz('color-palette', 1, 10);
 CreateClass('color-palette', 'td', 'color');
+
 const boxColor = document.getElementsByClassName('color');
 boxColor[0].style.backgroundColor = 'white';
 boxColor[0].className += ' selected';
 
 // Gera cores aleatórias
-for (let index = 1; index < boxColor.length; index += 1) {
-  const colorRed = Math.round(Math.random() * 255);
-  const colorBlue = Math.round(Math.random() * 255);
-  const colorGreen = Math.round(Math.random() * 255);
-  boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
-}
+randomColors();
 
 CreateMatriz('pixel-board', 24, 24);
 CreateClass('pixel-board', 'td', 'pixel');
