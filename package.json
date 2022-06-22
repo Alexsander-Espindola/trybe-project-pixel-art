@@ -22,9 +22,6 @@
     "lint:styles": "stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input",
     "cypress:open": "cypress open"
   },
-  "dependencies": {
-    "eslint-config-trybe-fundamentals": "1.1.0"
-  },
   "name": "trybe-project-pixel-art",
   "description": "1. Clone o repositório   * `git clone git@github.com:Alexsander-Espindola/trybe-project-pixel-art.git`.   * Entre na pasta do repositório que você acabou de clonar:     * `cd sd-013-b-project-pixels-art`",
   "version": "1.0.0",

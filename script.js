@@ -1,4 +1,3 @@
-// import { useState } from './node_modules/react';
 import {
   CreateMatriz,
   CreateClass,
@@ -6,18 +5,15 @@ import {
   selectColor,
   changeColor,
   clearBoard,
-} from './utilities';
-
-// const [numberOfColors, setNumberOfColors] = useState(10);
-const numberOfColors = 10;
+} from './utilities.js';
 
 const submitBtn = document.querySelector('#send');
+let numberOfColors = 10;
 
 submitBtn.addEventListener('click', () => {
   const colorQuantity = document.querySelector('#color-quantity');
-  // eslint-disable-next-line radix
-  // setNumberOfColors(parseInt(colorQuantity.value));
-  console.log(colorQuantity);
+  numberOfColors = parseInt(colorQuantity.value);
+  console.log(numberOfColors);
 });
 
 CreateMatriz('color-palette', 1, numberOfColors);
