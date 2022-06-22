@@ -44,7 +44,6 @@ function selectColor(event) {
   verificaSelected('color');
   const divTarget = event.target;
   divTarget.className += ' selected';
-  console.log(divTarget);
 }
 
 function changeColor(event) {
@@ -75,7 +74,6 @@ function randomColors() {
 function removeElementsByClass(className) {
   const getClassName = document.getElementById(`${className}`)
     .getElementsByClassName('td');
-  console.log(getClassName.length);
   while(getClassName.length > 0){
     getClassName[0].parentNode.removeChild(getClassName[0]);
   }
