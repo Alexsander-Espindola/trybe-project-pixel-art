@@ -1,20 +1,21 @@
-function createBox(className) {
-  const box = document.createElement('div');
-  box.className = className;
-  return box;
-}
+import CreateMatriz from "./utilities.js";
+// function createBox(className) {
+//   const box = document.createElement('div');
+//   box.className = className;
+//   return box;
+// }
 
-function createMatriz(elementDiv, divLine, divColumn) {
-  const getElementDiv = document.getElementById(`${elementDiv}`);
-  for (let i = 0; i < divLine; i += 1) {
-    const line = createBox('tr');
-    getElementDiv.appendChild(line);
-    for (let j = 0; j < divColumn; j += 1) {
-      const column = createBox('td');
-      line.appendChild(column);
-    }
-  }
-}
+// function CreateMatriz(elementDiv, divLine, divColumn) {
+//   const getElementDiv = document.getElementById(`${elementDiv}`);
+//   for (let i = 0; i < divLine; i += 1) {
+//     const line = createBox('tr');
+//     getElementDiv.appendChild(line);
+//     for (let j = 0; j < divColumn; j += 1) {
+//       const column = createBox('td');
+//       line.appendChild(column);
+//     }
+//   }
+// }
 
 function createClass(elementId, elementsClass, className) {
   const getClassName = document.getElementById(`${elementId}`).getElementsByClassName(`${elementsClass}`);
@@ -23,7 +24,19 @@ function createClass(elementId, elementsClass, className) {
   }
 }
 
-createMatriz('color-palette', 1, 100);
+const submitBtn = document.querySelector('#send');
+let numberOfColors = 10;
+
+submitBtn.addEventListener('click', () => {
+  const colorQuantity = document.querySelector('#color-quantity');
+  const numberOfColors = parseInt(colorQuantity.value);
+  console.log(numberOfColors);
+  // createMatriz('color-palette', 1, numberOfColors);
+
+  location.reload();
+});
+
+CreateMatriz('color-palette', 1, numberOfColors);
 createClass('color-palette', 'td', 'color');
 const boxColor = document.getElementsByClassName('color');
 boxColor[0].style.backgroundColor = 'white';
@@ -37,7 +50,7 @@ for (let index = 1; index < boxColor.length; index += 1) {
   boxColor[index].style.backgroundColor = `rgb( ${colorRed}, ${colorGreen}, ${colorBlue})`;
 }
 
-createMatriz('pixel-board', 24, 24);
+CreateMatriz('pixel-board', 24, 24);
 createClass('pixel-board', 'td', 'pixel');
 
 function addEvent(className, eventName, functionSelected) {
